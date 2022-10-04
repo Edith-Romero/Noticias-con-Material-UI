@@ -33,7 +33,9 @@ const Formulario = () => {
                         </MenuItem>
                     ))}
                 </Select>
-                <Box sx={{ marginTop: 2 }}>
+                {/* Tenia un button el cual no usaremos porque el useEffect nos genera el cambio por su dependencia y no requiere una accion del usuario */}
+                {/* Lo comento con fines de apuntes aca */}
+                {/* <Box sx={{ marginTop: 2 }}>
                     <Button
                         fullWidth
                         variant='contained'
@@ -41,7 +43,7 @@ const Formulario = () => {
                     >
                         Buscar Noticias
                     </Button>
-                </Box>
+                </Box> */}
             </FormControl>
         </form>
     )

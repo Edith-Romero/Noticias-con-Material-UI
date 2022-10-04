@@ -9,7 +9,7 @@ function App() {
     <NoticiasProvaider>
       <Container>
         <header>
-          <Typography align="center" marginY={5} component="h1" variant="h3">
+          <Typography align="center" marginY={5} component="h1" variant="h3" color="primary">
             Buscador de Noticias
           </Typography>
         </header>

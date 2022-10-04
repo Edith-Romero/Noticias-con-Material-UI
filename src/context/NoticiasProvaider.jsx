@@ -10,14 +10,18 @@ const NoticiasProvaider = ({ children }) => {
 
     const [categoria, setCategoria] = useState('general')
     const [noticias, setNoticias] = useState([])
+    const [pagina, setPagina] = useState(1)
+    const [totalNoticias, setTotalNoticias] = useState(0)
 
     useEffect(() => {
         const ConsultarApi = async () => {
-            const url = `https://newsapi.org/v2/top-headlines?country=mx&category=${categoria}&pagSize=100&apiKey=${AppKey}`
+            const url = `https://newsapi.org/v2/top-headlines?country=ar&category=${categoria}&pagSize=100&apiKey=${AppKey}`
 
             const { data } = await axios(url)
 
             setNoticias(data.articles);
+            console.log(data);
+            setTotalNoticias(data.totalResults)
         }
         ConsultarApi()
     }, [categoria])
@@ -32,7 +36,8 @@ const NoticiasProvaider = ({ children }) => {
             value={{
                 categoria,
                 handleChangeCategoria,
-                noticias
+                noticias,
+                totalNoticias
             }}
         >
             {children}
