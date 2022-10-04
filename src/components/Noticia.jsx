@@ -3,9 +3,8 @@ import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Link from "@mui/material/Link";
-import typography from "@mui/material/typography";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/typography";
+import Typography from "@mui/material/Typography";
 
 
 
@@ -14,7 +13,7 @@ const Noticia = ({ noticia }) => {
     const { urlToImage, url, title, description, source } = noticia
 
     return (
-        // Aca se coloca el grid en el padre y aca en el hijo se hace el mediaQuery
+        // Aca se coloca el grid en el padre "Componente de Formulario" y aca en el hijo se hace el mediaQuery
         <Grid item md={6} lg={4}>
             <Card>
                 {urlToImage && (
@@ -32,17 +31,17 @@ const Noticia = ({ noticia }) => {
                     >
                         {source.name}
                     </Typography>
-                    <typography
+                    <Typography
                         variant='h5'
                         component='div'
                     >
                         {title}
-                    </typography>
-                    <typography
+                    </Typography>
+                    <Typography
                         variant='body2'
                     >
                         {description}
-                    </typography>
+                    </Typography>
                 </CardContent>
                 <CardActions>
                     <Link

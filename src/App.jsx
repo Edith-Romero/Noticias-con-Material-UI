@@ -23,9 +23,7 @@ function App() {
             <Formulario />
           </Grid>
         </Grid>
-
         <ListadoNoticias />
-
       </Container>
     </NoticiasProvaider>
   );

@@ -20,7 +20,19 @@ const NoticiasProvaider = ({ children }) => {
             const { data } = await axios(url)
 
             setNoticias(data.articles);
-            console.log(data);
+            setTotalNoticias(data.totalResults)
+            setPagina(1)
+        }
+        ConsultarApi()
+    }, [categoria])
+
+    useEffect(() => {
+        const ConsultarApi = async () => {
+            const url = `https://newsapi.org/v2/top-headlines?country=ar&page=${pagina}&category=${categoria}&pagSize=100&apiKey=${AppKey}`
+
+            const { data } = await axios(url)
+
+            setNoticias(data.articles);
             setTotalNoticias(data.totalResults)
         }
         ConsultarApi()
@@ -31,13 +43,19 @@ const NoticiasProvaider = ({ children }) => {
         setCategoria(e.target.value)
     }
 
+    const handleChangePagina = (e, valor) => {
+        setPagina(valor);
+    }
+
     return (
         <NoticiasContext.Provider
             value={{
                 categoria,
                 handleChangeCategoria,
                 noticias,
-                totalNoticias
+                totalNoticias,
+                handleChangePagina,
+                pagina
             }}
         >
             {children}
